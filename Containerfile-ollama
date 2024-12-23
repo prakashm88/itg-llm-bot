@@ -1,0 +1,11 @@
+FROM ollama/ollama as ollama
+
+ARG models
+
+#RUN ollama serve & sleep 2 && for model in $models; do ollama pull $model ; done;
+
+RUN ollama serve & sleep 2 && ollama pull llama:3.2
+
+EXPOSE 11434
+
+CMD ["serve"]
